@@ -20,10 +20,10 @@ Current build status
 
 Current release info
 ====================
-[![Conda Recipe](https://img.shields.io/badge/recipe-r--text2vec-green.svg)](https://anaconda.org/conda-forge/r-text2vec)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-text2vec.svg)](https://anaconda.org/conda-forge/r-text2vec)
-[![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-text2vec.svg)](https://anaconda.org/conda-forge/r-text2vec)
-[![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-text2vec.svg)](https://anaconda.org/conda-forge/r-text2vec)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--text2vec-green.svg)](https://anaconda.org/conda-forge/r-text2vec) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-text2vec.svg)](https://anaconda.org/conda-forge/r-text2vec) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-text2vec.svg)](https://anaconda.org/conda-forge/r-text2vec) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-text2vec.svg)](https://anaconda.org/conda-forge/r-text2vec) |
 
 Installing r-text2vec
 =====================
