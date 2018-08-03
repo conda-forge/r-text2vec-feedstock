@@ -14,7 +14,8 @@ source:
   sha256: ecf97ef61578f69d5cb6691385a01ed10080aa2914b54d4671abbffb2a28976d
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   # skip osx and win builds because of issue with r-rcppparallel
   # the OSX error seems to be related to C++11
   skip: True  # [osx or win]
@@ -25,6 +26,12 @@ build:
 
 requirements:
   build:
+    - posix                # [win]
+    - {{ compiler('c') }}        # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('cxx') }}        # [unix]
+    - {{ compiler('m2w64_cxx') }}  # [win]
+  host:
     - r-base
     - r-matrix >=1.1
     - r-r6 >=2.1.2
@@ -38,9 +45,6 @@ requirements:
     - r-mlapi >=0.1.0
     - r-sparsepp >=0.2.0
     - r-stringi >=1.1.5
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
 
   run:
     - r-base
@@ -56,7 +60,6 @@ requirements:
     - r-mlapi >=0.1.0
     - r-sparsepp >=0.2.0
     - r-stringi >=1.1.5
-    - libgcc  # [not win]
 
 test:
   commands:
