@@ -1,4 +1,4 @@
-{% set version = '0.5.1' %}
+{% set version = "0.6" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,11 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/text2vec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/text2vec/text2vec_{{ version }}.tar.gz
-  sha256: ecf97ef61578f69d5cb6691385a01ed10080aa2914b54d4671abbffb2a28976d
+  sha256: 5e8471ea68ee9d5f0d46c4a6f197af78dd160e8bb0246dcc0ff58b7ece66e564
 
 build:
   merge_build_host: True  # [win]
-  number: 1003
+  number: 0
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
