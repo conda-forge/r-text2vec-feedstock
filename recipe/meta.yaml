@@ -1,4 +1,4 @@
-{% set version = "0.6" %}
+{% set version = '0.6' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: text2vec_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/text2vec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/text2vec/text2vec_{{ version }}.tar.gz
@@ -16,17 +15,16 @@ source:
 build:
   merge_build_host: True  # [win]
   number: 0
-  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -35,31 +33,25 @@ requirements:
   host:
     - r-base
     - r-matrix >=1.1
-    - r-r6 >=2.1.2
-    - r-rcpp >=0.11
-    - r-rcppparallel >=4.3.14
+    - r-r6 >=2.3.0
+    - r-rcpp >=1.0.3
     - r-data.table >=1.9.6
     - r-digest >=0.6.8
-    - r-foreach >=1.4.3
-    - r-futile.logger >=1.4.3
-    - r-irlba >=2.2.1
+    - r-lgr >=0.2
     - r-mlapi >=0.1.0
-    - r-sparsepp >=0.2.0
+    - r-rsparse >=0.3.3.4
     - r-stringi >=1.1.5
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-matrix >=1.1
-    - r-r6 >=2.1.2
-    - r-rcpp >=0.11
-    - r-rcppparallel >=4.3.14
+    - r-r6 >=2.3.0
+    - r-rcpp >=1.0.3
     - r-data.table >=1.9.6
     - r-digest >=0.6.8
-    - r-foreach >=1.4.3
-    - r-futile.logger >=1.4.3
-    - r-irlba >=2.2.1
+    - r-lgr >=0.2
     - r-mlapi >=0.1.0
-    - r-sparsepp >=0.2.0
+    - r-rsparse >=0.3.3.4
     - r-stringi >=1.1.5
 
 test:
@@ -69,22 +61,43 @@ test:
 
 about:
   home: http://text2vec.org
-  license: GPL (>= 2)
+  license: GPL-2
   summary: Fast and memory-friendly tools for text vectorization, topic modeling (LDA, LSA),
     word embeddings (GloVe), similarities. This package provides a source-agnostic streaming
     API, which allows researchers to perform analysis of collections of documents which
     are larger than available RAM. All core functions are parallelized to benefit from
     multicore machines.
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - CurtLH
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: text2vec
+# Type: Package
+# Version: 0.6
+# Title: Modern Text Mining Framework for R
+# License: GPL (>= 2) | file LICENSE
+# Description: Fast and memory-friendly tools for text vectorization, topic modeling (LDA, LSA), word embeddings (GloVe), similarities. This package provides a source-agnostic streaming API, which allows researchers to perform analysis of collections of documents which are larger than available RAM. All core functions are parallelized to benefit from multicore machines.
+# Authors@R: c( person("Dmitriy", "Selivanov", role = c("aut", "cre", "cph"), email = "selivanov.dmitriy@gmail.com"), person("Manuel", "Bickel", role = c("aut", "cph"), comment = "Coherence measures for topic models"), person("Qing", "Wang", role = c("aut", "cph"), comment = "Author of the WaprLDA C++ code"))
+# Maintainer: Dmitriy Selivanov <selivanov.dmitriy@gmail.com>
+# Encoding: UTF-8
+# SystemRequirements: C++11
+# Depends: R (>= 3.6.0), methods
+# Imports: Matrix (>= 1.1), Rcpp (>= 1.0.3), R6 (>= 2.3.0), data.table(>= 1.9.6), rsparse (>= 0.3.3.4), stringi (>= 1.1.5), mlapi (>= 0.1.0), lgr (>= 0.2), digest (>= 0.6.8)
+# LinkingTo: Rcpp, digest (>= 0.6.8)
+# Suggests: magrittr, udpipe (>= 0.6), glmnet, testthat, covr, knitr, rmarkdown, proxy
+# URL: http://text2vec.org
+# BugReports: https://github.com/dselivanov/text2vec/issues
+# VignetteBuilder: knitr
+# LazyData: true
+# RoxygenNote: 6.1.1
+# NeedsCompilation: yes
+# Packaged: 2020-02-18 06:09:05 UTC; dselivanov
+# Author: Dmitriy Selivanov [aut, cre, cph], Manuel Bickel [aut, cph] (Coherence measures for topic models), Qing Wang [aut, cph] (Author of the WaprLDA C++ code)
+# Repository: CRAN
+# Date/Publication: 2020-02-18 14:20:03 UTC
