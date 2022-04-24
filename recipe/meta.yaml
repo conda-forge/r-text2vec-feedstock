@@ -1,4 +1,4 @@
-{% set version = '0.6' %}
+{% set version = "0.6.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +10,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/text2vec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/text2vec/text2vec_{{ version }}.tar.gz
-  sha256: 5e8471ea68ee9d5f0d46c4a6f197af78dd160e8bb0246dcc0ff58b7ece66e564
+  sha256: f10aa50abee9f4b0dc686126dace49594f5417c9e9662338d4168602c2c83a2e
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
-  skip: True  # [r_base == "3.5.1"]
+  merge_build_host: true  # [win]
+  number: 0
+  skip: true  # [r_base == "3.5.1"]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -63,14 +63,11 @@ test:
 about:
   home: http://text2vec.org
   license: GPL-2
-  summary: Fast and memory-friendly tools for text vectorization, topic modeling (LDA, LSA),
-    word embeddings (GloVe), similarities. This package provides a source-agnostic streaming
-    API, which allows researchers to perform analysis of collections of documents which
-    are larger than available RAM. All core functions are parallelized to benefit from
-    multicore machines.
+  summary: Fast and memory-friendly tools for text vectorization, topic modeling (LDA, LSA), word embeddings (GloVe), similarities. This package provides a source-agnostic streaming API, which allows researchers to perform analysis of collections of documents which are larger than available RAM. All core functions are parallelized
+    to benefit from multicore machines.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
     - LICENSE
 
 extra:
