@@ -3,7 +3,7 @@ About r-text2vec
 
 Home: http://text2vec.org
 
-Package license: GPL-2
+Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-text2vec-feedstock/blob/main/LICENSE.txt)
 
