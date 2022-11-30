@@ -15,7 +15,6 @@ source:
 build:
   merge_build_host: true  # [win]
   number: 0
-  skip: true  # [r_base == "3.5.1"]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -31,9 +30,10 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-matrix >=1.1
+    - r-matrix >=1.5
     - r-r6 >=2.3.0
     - r-rcpp >=1.0.3
     - r-data.table >=1.9.6
@@ -45,7 +45,7 @@ requirements:
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-matrix >=1.1
+    - r-matrix >=1.5
     - r-r6 >=2.3.0
     - r-rcpp >=1.0.3
     - r-data.table >=1.9.6
@@ -62,7 +62,7 @@ test:
 
 about:
   home: http://text2vec.org
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: Fast and memory-friendly tools for text vectorization, topic modeling (LDA, LSA), word embeddings (GloVe), similarities. This package provides a source-agnostic streaming API, which allows researchers to perform analysis of collections of documents which are larger than available RAM. All core functions are parallelized
     to benefit from multicore machines.
   license_family: GPL2
