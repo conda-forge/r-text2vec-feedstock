@@ -3,6 +3,7 @@ About r-text2vec-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-text2vec-feedstock/blob/main/LICENSE.txt)
 
+
 About r-text2vec
 ----------------
 
@@ -11,6 +12,7 @@ Home: http://text2vec.org
 Package license: GPL-2.0-or-later
 
 Summary: Fast and memory-friendly tools for text vectorization, topic modeling (LDA, LSA), word embeddings (GloVe), similarities. This package provides a source-agnostic streaming API, which allows researchers to perform analysis of collections of documents which are larger than available RAM. All core functions are parallelized to benefit from multicore machines.
+
 About r-text2vec
 ----------------
 
