@@ -1,4 +1,4 @@
-{% set version = "0.6.4" %}
+{% set version = "0.6.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/text2vec_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/text2vec/text2vec_{{ version }}.tar.gz
-  sha256: 50d8086d9937532266ae683f446107bb23cd07bfce0873a2028c7ff8c9dd546a
+  sha256: 7354502ae7f1d20e59d409c023466c6028006cbd688bc6c52e0b30c9f3a69694
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
